@@ -1,5 +1,8 @@
 # snk-doctor
 
+[![Discussions](https://img.shields.io/github/discussions/lbigor/snk-doctor)](https://github.com/lbigor/snk-doctor/discussions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 > A skill que diagnostica e conserta sozinha — quando sabe. E aprende quando não sabe.
 
 **Problema:** erro em produção, você caça stacktrace, pesquisa, testa fix, reza.
