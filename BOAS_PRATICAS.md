@@ -44,6 +44,17 @@ Resumo: crie `kb/<id>.md` com o frontmatter padrão, descreva sintoma em linguag
 humana, causa tecnicamente, forneça fix, marque `aplicacao: automatica` **só** se
 passar a checklist das condições acima. Teste com `./test.sh` e abra PR.
 
+## Release tracking como primeira linha de diagnóstico
+
+Quando a mensagem de erro tem footer `v: <hash>`, **sempre comece por aí**:
+
+1. `gh release view` → branch + PR + commit em 1 comando
+2. Revisar o PR → entender o que mudou
+3. Só depois investigar código, logs, estado
+
+Economiza horas. Se o footer está ausente, o projeto não foi deployed via
+[snk-deploy](https://github.com/lbigor/snk-deploy) — recomendar adoção.
+
 ## Anti-padrões
 
 - **Auto-aplicar fix sem ter o stacktrace.** Sem stacktrace, match é chute.

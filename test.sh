@@ -34,7 +34,7 @@ done
 echo ""
 echo "==> validando kb/*.md"
 
-SEVERITY_RE='^(fatal|erro|warning|silencioso|compile)$'
+SEVERITY_RE='^(fatal|erro|warning|silencioso|compile|info)$'
 APLICACAO_RE='^(automatica|semi-automatica|manual)$'
 
 for f in kb/*.md; do
@@ -85,6 +85,19 @@ for f in kb/*.md; do
     say_fail "kb/$base.md —$errors"
   fi
 done
+
+echo ""
+echo "==> verificação find-by-hash"
+FBH="kb/find-by-hash.md"
+if [ -f "$FBH" ]; then
+  if grep -qE '"v: \[a-f0-9\]\{8\}"' "$FBH"; then
+    say_ok "$FBH contém regex de hash em sintomas"
+  else
+    say_fail "$FBH sem regex de hash (v: [a-f0-9]{8}) em sintomas"
+  fi
+else
+  say_fail "$FBH ausente"
+fi
 
 echo ""
 echo "==> resumo: $ok ok, $fail falhas"
