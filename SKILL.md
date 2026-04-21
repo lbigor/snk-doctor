@@ -23,8 +23,10 @@ A skill deve disparar quando o usuário disser coisas como:
    da classe que falhou.
 2. **Coletar evidências.**
    - Se MCP `slack` estiver disponível: `mcp__slack__slack_search_messages` ou
-     `slack_get_channel_history` no canal `C0AU7JUDEF2` (#logsankhya). Procurar a última
-     tag antes do silêncio (`[FATAL]`, `[ERRO]`, `[SKIP]`, ausência de `[FIM]`).
+     `slack_get_channel_history` no canal configurado em `$SNKDOCTOR_SLACK_CHANNEL`
+     (ou o canal que o projeto usa com `snk-slack` — padrão `#logsankhya`).
+     Procurar a última tag antes do silêncio (`[FATAL]`, `[ERRO]`, `[SKIP]`,
+     ausência de `[FIM]`).
    - Ler os arquivos Java referenciados no stacktrace.
    - `git log -n 5` nos arquivos suspeitos pra entender o que mudou.
 3. **Casar com kb/.** Iterar sobre `kb/*.md`, ler frontmatter `sintomas:` e casar contra
