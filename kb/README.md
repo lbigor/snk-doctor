@@ -12,7 +12,7 @@ id: flush-timeout            # kebab-case, único. Bate com o nome do arquivo.
 sintomas:                    # lista de strings procuradas no input (log, fala, stacktrace)
   - "buffer acumulou"
   - "thread morta"
-severity: fatal              # fatal | erro | warning | silencioso | compile
+severity: fatal              # fatal | erro | warning | silencioso | compile | info
 aplicacao: semi-automatica   # automatica | semi-automatica | manual
 deps:                        # outras skills necessárias pra aplicar o fix (opcional)
   - snk-slack
@@ -30,6 +30,7 @@ deps:                        # outras skills necessárias pra aplicar o fix (opc
   - `warning` — degradação, sem falha.
   - `silencioso` — resultado errado sem sinal (ex.: filtro que descarta linhas válidas).
   - `compile` — erro em tempo de build.
+  - `info` — não é falha: rastreio informativo (ex.: "que PR gerou esse hash?").
 - `aplicacao` — obrigatório. Um de:
   - `automatica` — skill aplica fix sem pedir confirmação (usa critérios do
     [BOAS_PRATICAS.md](../BOAS_PRATICAS.md)).
@@ -69,3 +70,14 @@ Copie `_template.md` como ponto de partida.
 - Sem emojis no conteúdo.
 - Blocos de código sempre com linguagem explícita (```java, ```sql, ```bash).
 - Linhas ≤ 100 colunas.
+
+## Inventário de casos
+
+| Caso | Aplicação | Severity |
+|---|---|---|
+| [flush-timeout](flush-timeout.md) | semi-automática | fatal |
+| [jape-prepare-pk](jape-prepare-pk.md) | automática | erro |
+| [sql-null-valor](sql-null-valor.md) | automática | silencioso |
+| [gson-classpath](gson-classpath.md) | manual | compile |
+| [slack-rate-limit](slack-rate-limit.md) | automática | warning |
+| [find-by-hash](find-by-hash.md) | automática | info |

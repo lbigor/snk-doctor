@@ -43,5 +43,6 @@ adicionar um caso novo na base de conhecimento.
 | [sql-null-valor](kb/sql-null-valor.md) | automática | silencioso |
 | [gson-classpath](kb/gson-classpath.md) | manual | compile |
 | [slack-rate-limit](kb/slack-rate-limit.md) | automática | warning |
+| [find-by-hash](kb/find-by-hash.md) | automática | info |
 
 MIT · Contato: lbigor@icloud.com

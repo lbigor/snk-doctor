@@ -15,6 +15,9 @@ A skill deve disparar quando o usuário disser coisas como:
 - "deu erro em produção, o log está no Slack"
 - "não sei o que houve com o empenho automático ontem"
 - cola stacktrace de projeto Sankhya no chat
+- "de onde veio esse erro abc12345?"
+- "qual PR gerou esse build?"
+- cola footer `v: abc12345 · feat/x · PR #42`
 
 ## Fluxo
 
@@ -29,6 +32,8 @@ A skill deve disparar quando o usuário disser coisas como:
      ausência de `[FIM]`).
    - Ler os arquivos Java referenciados no stacktrace.
    - `git log -n 5` nos arquivos suspeitos pra entender o que mudou.
+   - Se a mensagem contém footer `v: <hash>`, consultar o release correspondente via
+     `gh release view --repo <repo-alvo>` — retorna branch, commit e PR automaticamente.
 3. **Casar com kb/.** Iterar sobre `kb/*.md`, ler frontmatter `sintomas:` e casar contra
    a evidência coletada. Quem casar mais sintomas ganha — empate vai pro mais específico.
 4. **Decidir ação.**
